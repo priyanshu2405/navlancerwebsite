@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #ccff00;
+  --color-primary-glow: rgba(204, 255, 0, 0.5);
+
+  --color-bg-dark: #050505;
+  --color-bg-card: #121212;
+
+  --color-text-main: #ffffff;
+  --color-text-muted: #a1a1aa;
+
+  --color-border-dark: #333333;
+  /* Renamed from border to avoid conflict or just keep as specific */
+
+  /* Semantic Tokens for Find Jobs (Light Mode) */
+  --color-background: #f8fafc;
+  /* Slate 50 */
+  --color-foreground: #0f172a;
+  /* Slate 900 */
+
+  --color-card: #ffffff;
+  --color-card-foreground: #0f172a;
+
+  --color-muted: #f1f5f9;
+  /* Slate 100 */
+  --color-muted-foreground: #64748b;
+  /* Slate 500 */
+
+  --color-border: #e2e8f0;
+  /* Slate 200 - General border */
+  --color-input: #e2e8f0;
+
+  --color-primary-light: #ccff00;
+  /* Keeping consistent */
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  /* Marquee Animations */
+  @keyframes marquee-up {
+    0% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+
+  @keyframes marquee-down {
+    0% {
+      transform: translateY(-50%);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  --animate-marquee-up: marquee-up 30s linear infinite;
+  --animate-marquee-down: marquee-down 30s linear infinite;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-bg-dark text-text-main min-h-screen overflow-x-hidden;
+  }
+
+  a {
+    @apply no-underline text-inherit transition-all duration-300;
+  }
+
+  button {
+    @apply cursor-pointer border-none outline-none font-[inherit];
+  }
+}
+
+@layer utilities {
+  .glow-text {
+    text-shadow: 0 0 20px var(--color-primary-glow);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-bg-dark;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#333] rounded;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-[#444];
+  }
+}
